@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="de" ng-app="MailConfig">
+<head>
+    <title>Mail Config</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript" src="libs/jquery/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="libs/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="MailConfigController">
+    <h1 style="text-align:left;float:left;">Mail Config</h1>
+    <h2 style="text-align:right;float:right;"><a href="overview.html"><img src="images/overview.png" height="40" width="40" alt="Overview Icon" title="Overview Page"></a></h2>
+    <br style="clear:both;">
+    <p class="subtitle">For the CRUD Methods with the buttons, only the Provider is needed</p>
+    <form name="form" class="form-horizontal" role="form">
+        <div class="column-left">
+            <fieldset>
+                <legend>Provider</legend>
+                <div class="form-group">
+                    <label for="provider" class="col-sm-2 control-label">Name:</label>
+                    <div class="col-sm-4">
+                        <input name="provider" type="text" class="form-control" id="provider" placeholder="Provider" ng-model="mailConfig.provider" required>
+                    </div>
+                </div><br>
+            </fieldset>
+            <fieldset>
+                <legend>SMTP</legend>
+                <div class="form-group">
+                    <label for="smtpMail" class="col-sm-2 control-label">Mail:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="smtpMail" placeholder="Mail" ng-model="mailConfig.smtp.mail">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="smtpSecure" class="col-sm-2 control-label">Secure:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="smtpSecure" placeholder="Secure" ng-model="mailConfig.smtp.secure">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="smtpPort" class="col-sm-2 control-label">Port:</label>
+                    <div class="col-sm-4">
+                        <input type="number" min="0" maxlength="3" class="form-control" id="smtpPort" placeholder="Port" ng-model="mailConfig.smtp.port">
+                    </div>
+                </div><br>
+            </fieldset>
+            <fieldset>
+                <legend>IMAP</legend>
+                <div class="form-group">
+                    <label for="imapMail" class="col-sm-2 control-label">Mail:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="imapMail" placeholder="Mail" ng-model="mailConfig.imap.mail">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="imapSecure" class="col-sm-2 control-label">Secure:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="imapSecure" placeholder="Secure" ng-model="mailConfig.imap.secure">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="imapPort" class="col-sm-2 control-label">Port:</label>
+                    <div class="col-sm-4">
+                        <input type="number" min="0" maxlength="3" class="form-control" id="imapPort" placeholder="Port" ng-model="mailConfig.imap.port">
+                    </div>
+                </div><br>
+            </fieldset><br><br>
+            <p class="copyright">Copyright &copy; 2015 Andr&eacute; da Silva</p>
+            <p class="copyright">All Rights reserved</p>
+        </div>
+        <div class="column-right">
+            <fieldset>
+                <legend>POP3</legend>
+                <div class="form-group">
+                    <label for="pop3Mail" class="col-sm-2 control-label">Mail:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="pop3Mail" placeholder="Mail" ng-model="mailConfig.pop3.mail">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pop3Secure" class="col-sm-2 control-label">Secure:</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="pop3Secure" placeholder="Secure" ng-model="mailConfig.pop3.secure">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pop3Port" class="col-sm-2 control-label">Port:</label>
+                    <div class="col-sm-4">
+                        <input type="number" min="0" maxlength="3" class="form-control" id="pop3Port" placeholder="Port" ng-model="mailConfig.pop3.port">
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-primary" ng-disabled="form.provider.$error.required" ng-click="saveOrUpdateMailConfig()">Save</button>
+                    <button class="btn btn-primary" ng-disabled="form.provider.$error.required" ng-click="loadMailConfig()">Load</button><br>
+                    <button class="btn btn-primary" ng-disabled="form.provider.$error.required" ng-click="deleteMailConfig()">Delete</button>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Debug Information</h3>
+                </div>
+                <div class="panel-body">
+                    <pre>JSON to send: {{ json }}</pre><br>
+                    <pre>Webservice Output: {{ webserviceResponse }}</pre>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        $(".panel-heading").click(function() {
+            $(".panel-body").toggle(200);
+        });
+    </script>
+</body>
+</html>

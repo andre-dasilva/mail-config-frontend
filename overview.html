@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de" ng-app="MailConfig">
+<head>
+    <title>Overview Mail Configurations</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript" src="libs/jquery/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="libs/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="css/overview.css">
+</head>
+<body ng-controller="OverviewController">
+    <div id="wrapper">
+        <div id="header">
+            <div id="logo">
+                <h1>Mail Configurations</h1>
+            </div>
+        </div>
+        <div id="pitch">
+            <h1>Overview of all Mail Configurations in the MongoDB</h1>
+            <h3>Systemzeit: {{ date | date:'dd.MM.yyyy HH:mm:ss.sss' }}</h3>
+        </div>
+        <table border="2" bordercolor="#000066"  width="100%" cellpadding="6px" cellspacing="0">
+            <tr style="font-size: 15px">
+                <th>Provider</th>
+                <th>SMTP</th>
+                <th>IMAP</th>
+                <th>POP3</th>
+            </tr>
+            <tr ng-repeat="mailConfig in mailConfigs">
+                <th class="provider">{{ mailConfig.provider }}</th>
+                <td>
+                    <b>Mail: </b>{{ mailConfig.smtp.mail }}<br>
+                    <b>Secure: </b>{{ mailConfig.smtp.secure }}<br>
+                    <b>Port: </b>{{ mailConfig.smtp.port }}
+                </td>
+                <td>
+                    <b>Mail: </b>{{ mailConfig.imap.mail }}<br>
+                    <b>Secure: </b>{{ mailConfig.imap.secure }}<br>
+                    <b>Port: </b>{{ mailConfig.imap.port }}
+                </td>
+                <td>
+                    <b>Mail: </b>{{ mailConfig.pop3.mail }}<br>
+                    <b>Secure: </b>{{ mailConfig.pop3.secure }}<br>
+                    <b>Port: </b>{{ mailConfig.pop3.port }}
+                </td>
+            </tr>
+        </table>
+        <p class="webservice-response">{{ webserviceResponse }}</p>
+    </div>
+</body>
+</html>
