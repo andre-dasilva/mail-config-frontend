@@ -1,6 +1,6 @@
 var app = angular.module("MailConfig", []);
 
-var baseWebserviceUrl = "http://192.168.1.152:1028/mail-config/services/provider";
+var baseWebserviceUrl = "http://X:X:X:X:1028/mail-config/services/provider";
 //var baseWebserviceUrl = "http://localhost:8080/mail-config/services/providers";
 
 app.controller("MailConfigController", function($scope, $http) {
