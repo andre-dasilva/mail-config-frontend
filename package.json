@@ -1,0 +1,36 @@
+{
+  "name": "mail-config-frontend",
+  "version": "1.0.0",
+  "description": "The frontend for the mail config project",
+  "author": "André da Silva <andre-da.silva@outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 9000 -c-1 ."
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andre-dasilva/mail-config-frontend.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "libs"
+  ],
+  "keywords": [
+    "Mail",
+    "Config",
+    "HTML",
+    "JavaScript",
+    "Bootstrap"
+  ],
+  "bugs": {
+    "url": "https://github.com/andre-dasilva/mail-config-frontend/issues"
+  },
+  "homepage": "https://github.com/andre-dasilva/mail-config-frontend#readme",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
+}
