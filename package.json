@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prestart": "npm install",
-    "start": "http-server -a localhost -p 9000 -c-1 ."
+    "start": "http-server -a localhost -p 9000 -c-1 -O ."
   },
   "private": true,
   "repository": {

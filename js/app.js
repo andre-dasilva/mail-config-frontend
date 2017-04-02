@@ -1,6 +1,6 @@
 var app = angular.module("MailConfig", []);
 
-var baseWebserviceUrl = "http://X:X:X:X:1028/mail-config/services/provider";
+var baseWebserviceUrl = "http://localhost:8080/services/providers";
 //var baseWebserviceUrl = "http://localhost:8080/mail-config/services/providers";
 
 app.controller("MailConfigController", function($scope, $http) {
@@ -9,9 +9,9 @@ app.controller("MailConfigController", function($scope, $http) {
 
         // Test Data with Gmail Configuration
         $scope.mailConfig = {"provider": "gmail"};
-        //$scope.mailConfig.smtp = {"mail": "smtp.gmail.com", "secure": "tls", "port": 587};
-        //$scope.mailConfig.imap = {"mail": "imap.gmail.com", "secure": "ssl", "port": 993};
-        //$scope.mailConfig.pop3 = {"mail": "pop.gmail.com", "secure": "ssl", "port": 995};
+        // $scope.mailConfig.smtp = {"mail": "smtp.gmail.com", "secure": "tls", "port": 587};
+        // $scope.mailConfig.imap = {"mail": "imap.gmail.com", "secure": "ssl", "port": 993};
+        // $scope.mailConfig.pop3 = {"mail": "pop.gmail.com", "secure": "ssl", "port": 995};
     };
 
     $scope.initializeTestData();
